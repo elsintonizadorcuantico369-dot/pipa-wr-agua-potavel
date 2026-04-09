@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wr Água Potável - Caminhão Pipa no Rio de Janeiro e Região</title>
+    <title>Wr Aguá Potável — Caminhão Pipa Rio de Janeiro</title>
+    <meta name="description" content="Salim Gás e Água: Caminhão pipa para abastecimento emergencial, piscinas, obras e eventos. Atendemos Rio de Janeiro, Taquara, Pechincha, Recreio, Barra da Tijuca e região. Água potável de qualidade com agilidade.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
+        /* Variáveis de Cores */
         :root {
-            --bg-color: #08090C;
-            --primary-blue: #1A6FD4;
-            --light-blue: #4D9FFF;
-            --white-text: #F2F4F8;
-            --dark-gray-text: #A0A0A0;
-            --card-bg: #15161A;
-            --footer-bg: #0F1014;
+            --cor-fundo: #08090C;
+            --cor-azul-principal: #1A6FD4;
+            --cor-azul-claro: #4D9FFF;
+            --cor-branco: #F2F4F8;
+            --cor-texto-claro: #D0D0D0;
+            --cor-estrela: #FFD700; /* Dourado para estrelas */
         }
 
-        /* General Reset & Base Styles */
+        /* Reset Básico e Estilos Globais */
         * {
             margin: 0;
             padding: 0;
@@ -31,32 +34,37 @@
 
         body {
             font-family: 'Barlow', sans-serif;
-            color: var(--white-text);
-            background-color: var(--bg-color);
             line-height: 1.6;
+            color: var(--cor-texto-claro);
+            background-color: var(--cor-fundo);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Barlow Condensed', sans-serif;
+            color: var(--cor-branco);
             font-weight: 700;
-            color: var(--white-text);
             line-height: 1.2;
         }
 
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; }
+        h3 { font-size: 2.2rem; }
+        h4 { font-size: 1.8rem; }
+
         p {
-            margin-bottom: 1em;
+            margin-bottom: 1rem;
         }
 
         a {
-            color: var(--light-blue);
+            color: var(--cor-azul-claro);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--primary-blue);
+            color: var(--cor-azul-principal);
         }
 
         .container {
@@ -67,14 +75,600 @@
 
         .btn {
             display: inline-block;
-            background-color: var(--primary-blue);
-            color: var(--white-text);
+            background-color: var(--cor-azul-principal);
+            color: var(--cor-branco);
             padding: 15px 30px;
             border-radius: 8px;
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1.2em;
+            font-size: 1.2rem;
             font-weight: 700;
             text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--cor-azul-claro);
+            transform: translateY(-2px);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--cor-fundo);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: var(--cor-branco);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand span {
+            color: var(--cor-azul-principal);
+            margin-left: 5px;
+        }
+
+        .navbar-contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar-contact .phone-icon {
+            font-size: 1.5rem;
+            color: var(--cor-azul-claro);
+        }
+
+        .navbar-contact .phone-number {
+            color: var(--cor-branco);
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Barlow Condensed', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(8, 9, 12, 0.85), rgba(8, 9, 12, 0.85)), url('https://via.placeholder.com/1920x800/08090C/4D9FFF?text=CAMINHAO+PIPA') no-repeat center center/cover;
+            /* Placeholder image, replace with a real truck image if available */
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 9, 12, 0.7); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--cor-texto-claro);
+        }
+
+        .hero .highlight {
+            color: var(--cor-azul-claro);
+            font-weight: 700;
+        }
+
+        /* Seção de Dores */
+        .dores {
+            background-color: #121418;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .dores h2 {
+            margin-bottom: 60px;
+        }
+
+        .dores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .dor-item {
+            background-color: var(--cor-fundo);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--cor-azul-principal);
+        }
+
+        .dor-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .dor-item .icon {
+            font-size: 3rem;
+            color: var(--cor-azul-claro);
+            margin-bottom: 20px;
+        }
+
+        .dor-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .dor-item p {
+            font-size: 1.1rem;
+            color: var(--cor-texto-claro);
+        }
+
+        /* Seção Como Funciona */
+        .como-funciona {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .como-funciona h2 {
+            margin-bottom: 60px;
+        }
+
+        .passos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .passo-item {
+            background-color: #121418;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: left;
+            border-left: 5px solid var(--cor-azul-claro);
+        }
+
+        .passo-item .numero {
+            background-color: var(--cor-azul-principal);
+            color: var(--cor-branco);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 0 0 8px rgba(26, 111, 212, 0.3);
+        }
+
+        .passo-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .passo-item p {
+            font-size: 1.1rem;
+            color: var(--cor-texto-claro);
+        }
+
+        /* Seção de Avaliações */
+        .reviews {
+            background-color: #121418;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .reviews h2 {
+            margin-bottom: 20px;
+        }
+
+        .reviews .google-note {
+            font-size: 1.2rem;
+            color: var(--cor-texto-claro);
+            margin-bottom: 60px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-item {
+            background-color: var(--cor-fundo);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            border-bottom: 5px solid var(--cor-azul-claro);
+        }
+
+        .review-item .stars {
+            color: var(--cor-estrela);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .review-item p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--cor-texto-claro);
+        }
+
+        .review-item .author {
+            font-weight: 600;
+            color: var(--cor-branco);
+            font-size: 1.1rem;
+        }
+
+        /* Seção Bairros Atendidos */
+        .bairros-atendidos {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .bairros-atendidos h2 {
+            margin-bottom: 40px;
+        }
+
+        .bairros-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            margin-top: 40px;
+        }
+
+        .bairros-list li {
+            background-color: var(--cor-azul-principal);
+            color: var(--cor-branco);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Seção do Mapa */
+        .mapa-section {
+            background-color: #121418;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .mapa-section h2 {
+            margin-bottom: 40px;
+        }
+
+        .mapa-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .mapa-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            filter: invert(90%) hue-rotate(180deg) saturate(0.7) brightness(0.85);
+        }
+
+        /* CTA Final */
+        .cta-final {
+            background-color: var(--cor-azul-principal);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--cor-branco);
+        }
+
+        .cta-final h2 {
+            color: var(--cor-branco);
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-final p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: var(--cor-branco);
+        }
+
+        .cta-final .btn {
+            background-color: var(--cor-fundo);
+            color: var(--cor-azul-claro);
+            padding: 18px 40px;
+            font-size: 1.4rem;
+        }
+
+        .cta-final .btn:hover {
+            background-color: #2a2c30;
+            color: var(--cor-azul-claro);
+        }
+
+        /* Rodapé */
+        .footer {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto-claro);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+
+        .footer .contact-info {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .footer .contact-info p {
+            margin: 5px 0;
+        }
+
+        .footer .payment-methods {
+            margin-top: 20px;
+            font-weight: 600;
+            color: var(--cor-branco);
+        }
+
+        .footer .payment-methods span {
+            color: var(--cor-azul-claro);
+        }
+
+        .footer .developer {
+            margin-top: 30px;
+            color: var(--cor-texto-claro);
+            font-size: 0.85rem;
+        }
+
+        /* Botão Flutuante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background-color: #25D366; /* WhatsApp Green */
+            color: var(--cor-branco);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #1DA851;
+            animation: none; /* Stop pulse on hover */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Ícones (usando caracteres Unicode para simplicidade) */
+        .icon-phone::before { content: '📞'; }
+        .icon-drop::before { content: '💧'; }
+        .icon-construction::before { content: '🏗️'; }
+        .icon-pool::before { content: '🏊'; }
+        .icon-event::before { content: '🎉'; }
+        .icon-contact::before { content: '💬'; }
+        .icon-quote::before { content: '📝'; }
+        .icon-schedule::before { content: '📅'; }
+        .icon-receive::before { content: '🚚'; }
+        .icon-whatsapp::before { content: '📱'; }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.4rem; }
+            h3 { font-size: 1.8rem; }
+            .hero p { font-size: 1.3rem; }
+            .cta-final h2 { font-size: 2.5rem; }
+            .cta-final p { font-size: 1.2rem; }
+            .navbar-brand { font-size: 1.8rem; }
+            .navbar-contact .phone-number { font-size: 1rem; }
+            .navbar-contact .phone-icon { font-size: 1.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.6rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-padding { padding: 60px 0; }
+            .navbar { padding: 15px 0; }
+            .navbar-brand { font-size: 1.6rem; }
+            .navbar-contact { gap: 10px; }
+            .navbar-contact .phone-number { display: none; } /* Hide number on small screens */
+            .btn { padding: 12px 25px; font-size: 1.1rem; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 2rem; bottom: 20px; right: 20px; }
+            .mapa-container iframe { height: 350px; }
+            .cta-final h2 { font-size: 2rem; }
+            .cta-final p { font-size: 1.1rem; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+            .hero p { font-size: 1rem; }
+            .navbar-brand { font-size: 1.4rem; }
+            .navbar-contact .phone-icon { font-size: 1.2rem; }
+            .dores-grid, .passos-grid, .reviews-grid { grid-template-columns: 1fr; }
+            .mapa-container iframe { height: 250px; }
+            .cta-final h2 { font-size: 1.8rem; }
+            .cta-final p { font-size: 1rem; }
+            .bairros-list li { font-size: 1rem; padding: 8px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="https://wa.me/552136851040" class="navbar-brand">Salim <span>gás e água</span></a>
+            <div class="navbar-contact">
+                <span class="phone-icon icon-phone"></span>
+                <a href="https://wa.me/552136851040" class="phone-number">+55 21 98510-2241</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Ficou sem água? <span class="highlight">Não se preocupe!</span></h1>
+                <p>A <span class="highlight">Wr Aguá Potável</span> resolve seu problema com agilidade e confiança. Atendemos <span class="highlight">Rio de Janeiro, Taquara, Pechincha, Recreio, Barra da Tijuca</span> e toda a região com caminhões pipa de última geração.</p>
+                <a href="https://wa.me/552136851040" class="btn">Solicite seu Caminhão Pipa Agora!</a>
+            </div>
+        </section>
+
+        <section class="dores section-padding">
+            <div class="container">
+                <h2>Quem fica sem água, sabe a dor.</h2>
+                <p>Nós entendemos a urgência e a importância do abastecimento contínuo.</p>
+                <div class="dores-grid">
+                    <div class="dor-item">
+                        <div class="icon icon-drop"></div>
+                        <h3>Falta d'água na caixa?</h3>
+                        <p>Não deixe sua casa ou condomínio paralisar. Abastecimento rápido para emergências residenciais.</p>
+                    </div>
+                    <div class="dor-item">
+                        <div class="icon icon-construction"></div>
+                        <h3>Obra parada por falta de abastecimento?</h3>
+                        <p>Garanta a continuidade dos seus projetos com água para construções, terraplanagem e compactação.</p>
+                    </div>
+                    <div class="dor-item">
+                        <div class="icon icon-pool"></div>
+                        <h3>Piscina vazia no verão?</h3>
+                        <p>Encha sua piscina com água de qualidade e aproveite o melhor do Rio de Janeiro sem preocupações.</p>
+                    </div>
+                    <div class="dor-item">
+                        <div class="icon icon-event"></div>
+                        <h3>Evento sem estrutura hídrica?</h3>
+                        <p>Assegure o conforto e higiene em shows, feiras e eventos com nosso serviço de caminhão pipa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="como-funciona section-padding">
+            <div class="container">
+                <h2>Como funciona nosso serviço?</h2>
+                <p>Simples, rápido e eficiente. Garantimos sua tranquilidade em 4 passos.</p>
+                <div class="passos-grid">
+                    <div class="passo-item">
+                        <div class="numero">1</div>
+                        <h3><span class="icon-contact"></span> Entre em contato</h3>
+                        <p>Fale conosco pelo WhatsApp ou telefone. Nossa equipe está pronta para atendê-lo.</p>
+                    </div>
+                    <div class="passo-item">
+                        <div class="numero">2</div>
+                        <h3><span class="icon-quote"></span> Solicite seu orçamento</h3>
+                        <p>Informe suas necessidades e receba um orçamento claro e sem compromisso.</p>
+                    </div>
+                    <div class="passo-item">
+                        <div class="numero">3</div>
+                        <h3><span class="icon-schedule"></span> Agende a entrega</h3>
+                        <p>Combinamos o melhor dia e horário para o abastecimento, de acordo com sua urgência.</p>
+                    </div>
+                    <div class="passo-item">
+                        <div class="numero">4</div>
+                        <h3><span class="icon-receive"></span> Receba sua água</h3>
+                        <p>Nosso caminhão pipa chega ao local, realizando o abastecimento com segurança e rapidez.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reviews section-padding">
+            <div class="container">
+                <h2>O que nossos clientes dizem</h2>
+                <p class="google-note">Avaliação Google: <span style="color: var(--cor-estrela);">★★★★★</span> 4.9 de 5 (121 avaliações)</p>
+                <div class="reviews-grid">
+                    <div class="review-item">
+                        <div class="stars">★★★★★</div>
+                        <p>"Serviço impecável! Fiquei sem água no condomínio e a Salim Gás e Água resolveu em poucas horas. Profissionais muito atenciosos e eficientes."</p>
+                        <div class="author">- Ana Paula S.</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="stars">★★★★★</div>
+                        <p>"Precisava encher minha piscina para um evento de última hora e eles foram super rápidos. Água de excelente qualidade. Recomendo!"</p>
+                        <div class="author">- Carlos M.</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="stars">★★★★★</div>
+                        <p>"Empresa séria e comprometida. Minha obra não parou graças ao abastecimento pont
 </body>
 </html>
